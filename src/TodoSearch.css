@@ -1,0 +1,27 @@
+.TodoSearchContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 9.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconSearch {
+    position: relative;
+    left: 15em;
+    z-index: 30;
+}
+
+.TodoSearch {
+    height: 2em;
+    width: 17em;
+    outline: none;
+    padding-left: 1.5em;
+}
+
+.TodoSearch:focus {
+    border: #4286f4 solid 2px;
+    border-radius: 5px;
+}
