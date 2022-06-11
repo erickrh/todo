@@ -2,7 +2,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 9.1em;
+    top: 8.9em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,18 +10,19 @@
 
 .iconSearch {
     position: relative;
-    left: 15em;
+    left: 18.3em;
     z-index: 30;
 }
 
 .TodoSearch {
-    height: 2em;
-    width: 17em;
+    height: 2.5em;
+    width: 22em;
     outline: none;
-    padding-left: 1.5em;
+    padding-left: 0.5em;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 
 .TodoSearch:focus {
-    border: #4286f4 solid 2px;
-    border-radius: 5px;
+    outline: #4286f4 solid 1px;
 }
