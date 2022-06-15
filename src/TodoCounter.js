@@ -20,14 +20,14 @@ const profileCSS = {
     marginRight: '0.5em',
 };
 
-function TodoCounter() {
+function TodoCounter({ total, completed }) {
     return (
         <React.Fragment>
             <div style={estilos}>
                 <img src={profile} alt="Foto de perfil" style={profileCSS} />
                 <div>
                     <h2>Hola, Erick.</h2> { /*Otra manera, con doble llaves {{color: red}} */}
-                    <p style={{fontWeight: '400', marginTop: '-1em'}}>Tienes dos tareas por hacer</p>
+                    <p style={{fontWeight: '400', marginTop: '-1em'}}>Has completado {completed} de {total} TODO's </p>
                 </div>
             </div>
         </React.Fragment>
