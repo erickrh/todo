@@ -7,9 +7,9 @@ import { TodoList } from './TodoList';
 // import './App.css';
 
 const defaultTodos = [
-  { text: 'Cortar cebolla', completed: true },
-  { text: 'Cocinar', completed: false },
-  { text: 'Renderizar', completed: false },
+  { text: 'Estudiar esperanto', completed: true },
+  { text: 'Hacer ejecicio', completed: false },
+  { text: 'Ir a la universidad', completed: false },
 ];
 
 function App() {
