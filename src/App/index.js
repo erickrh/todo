@@ -1,4 +1,3 @@
-import { faReacteurope } from '@fortawesome/free-brands-svg-icons';
 import React from 'react';
 import { AppUI } from './AppUI';
 
