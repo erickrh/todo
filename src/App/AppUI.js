@@ -6,7 +6,7 @@ import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 // import './App.css';
 
-function AppUI({
+function AppUI ({
     totalTodos,
     completedTodos,
     searchValue,

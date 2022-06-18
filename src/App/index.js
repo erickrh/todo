@@ -7,23 +7,40 @@ import { AppUI } from './AppUI';
 //   { text: 'Ir a la universidad', completed: false },
 // ];
 
-function App() {
-  // Local Storage
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos;
+// Custom Hook
+function useLocalStorage(itemName, initialValue) {
 
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
+  // Obtener TODO'S de local storage
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
   } else {
-    parsedTodos = JSON.parse(localStorageTodos);
+    parsedItem = JSON.parse(localStorageItem);
   }
 
+  // Estado de TODO's
+  const [item, setItem] = React.useState(parsedItem);
+  
+  // Persistencia de los todos con localstorage.
+  const saveItem = (newItem) => {
+    const stringifiedTodos = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifiedTodos);
+    setItem(newItem);
+  };
 
-  // Estados
-  const [todos, setTodos] = React.useState(parsedTodos);
+  return [
+    item,
+    saveItem
+  ];
+};
 
-  // TodoSearch
+function App() {
+  const [todos, saveItem] = useLocalStorage('TODOS_V1', []);
+
+  // Estado de TodoSearch
   const [searchValue, setSearchValue] = React.useState('');
 
   // TodoCounter
@@ -42,20 +59,13 @@ function App() {
     })
   }
 
-  // Persistencia de los todos con localstorage.
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
-  };
-
   // Marcar check
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
 
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed; // Toggle.
-    saveTodos(newTodos);
+    saveItem(newTodos);
   };
 
   // Delete
@@ -64,7 +74,7 @@ function App() {
 
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
+    saveItem(newTodos);
   };
 
   return (
