@@ -17,6 +17,7 @@ function useLocalStorage(itemName, initialValue) {
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
 
+  // useEffect: Permite ejecutar ciertas partes del codigo de nuestro componente, para que no se ejecute cada vez que se hace render en nuestro componente, si no dependiendo de ciertas condiciones. React ejecuta el useEffect luego del render de React, pero antes del render en el navegador.
   React.useEffect(() => {
     setTimeout(() => {
       try {
@@ -37,7 +38,7 @@ function useLocalStorage(itemName, initialValue) {
           setError(error);
         }
     }, 1000); 
-  })
+  }, []); // Array vacio para que se ejecute solo una vez al abrir la app, en el primer render.
   
   // Persistencia de los todos con localstorage.
   const saveItem = (newItem) => {
