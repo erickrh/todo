@@ -1,15 +1,27 @@
 import React from 'react';
 import { AppUI } from './AppUI';
 
-const defaultTodos = [
-  { text: 'Estudiar esperanto', completed: true },
-  { text: 'Hacer ejecicio', completed: false },
-  { text: 'Ir a la universidad', completed: false },
-];
+// const defaultTodos = [
+//   { text: 'Estudiar esperanto', completed: true },
+//   { text: 'Hacer ejecicio', completed: false },
+//   { text: 'Ir a la universidad', completed: false },
+// ];
 
 function App() {
+  // Local Storage
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+
   // Estados
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const [todos, setTodos] = React.useState(parsedTodos);
 
   // TodoSearch
   const [searchValue, setSearchValue] = React.useState('');
@@ -30,13 +42,20 @@ function App() {
     })
   }
 
-  // Marcar check.
+  // Persistencia de los todos con localstorage.
+  const saveTodos = (newTodos) => {
+    const stringifiedTodos = JSON.stringify(newTodos);
+    localStorage.setItem('TODOS_V1', stringifiedTodos);
+    setTodos(newTodos);
+  };
+
+  // Marcar check
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
 
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed; // Toggle.
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   // Delete
@@ -45,7 +64,7 @@ function App() {
 
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   return (
