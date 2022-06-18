@@ -1,3 +1,4 @@
+import { faReacteurope } from '@fortawesome/free-brands-svg-icons';
 import React from 'react';
 import { AppUI } from './AppUI';
 
@@ -8,37 +9,62 @@ import { AppUI } from './AppUI';
 // ];
 
 // Custom Hook
+
 function useLocalStorage(itemName, initialValue) {
 
-  // Obtener TODO'S de local storage
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
+  // Estados
+  const [error, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
+  const [item, setItem] = React.useState(initialValue);
 
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
+  React.useEffect(() => {
+    setTimeout(() => {
+      try {
+        // Obtener TODO'S de local storage
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
 
-  // Estado de TODO's
-  const [item, setItem] = React.useState(parsedItem);
+        if (!localStorageItem) {
+          localStorage.setItem(itemName, JSON.stringify(initialValue));
+          parsedItem = initialValue;
+        } else {
+          parsedItem = JSON.parse(localStorageItem);
+        }
+
+        setItem(parsedItem);
+        setLoading(false);
+        } catch (error) {
+          setError(error);
+        }
+    }, 1000); 
+  })
   
   // Persistencia de los todos con localstorage.
   const saveItem = (newItem) => {
-    const stringifiedTodos = JSON.stringify(newItem);
-    localStorage.setItem(itemName, stringifiedTodos);
-    setItem(newItem);
+    try {
+      const stringifiedTodos = JSON.stringify(newItem);
+      localStorage.setItem(itemName, stringifiedTodos);
+      setItem(newItem);
+    } catch (error) {
+      setError(error);
+    }
   };
 
-  return [
+  return {
     item,
-    saveItem
-  ];
+    saveItem,
+    loading,
+    error,
+  };
 };
 
 function App() {
-  const [todos, saveItem] = useLocalStorage('TODOS_V1', []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1', []);
 
   // Estado de TodoSearch
   const [searchValue, setSearchValue] = React.useState('');
@@ -65,7 +91,7 @@ function App() {
 
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed; // Toggle.
-    saveItem(newTodos);
+    saveTodos(newTodos);
   };
 
   // Delete
@@ -74,11 +100,13 @@ function App() {
 
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
-    saveItem(newTodos);
+    saveTodos(newTodos);
   };
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       totalTodos = {totalTodos}
       completedTodos = {completedTodos}
       searchValue={searchValue}
