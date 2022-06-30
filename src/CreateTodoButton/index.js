@@ -3,17 +3,16 @@ import './CreateTodoButton.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCirclePlus} from '@fortawesome/free-solid-svg-icons';
 
-function CreateTodoButton() {
+function CreateTodoButton(props) {
     // Metodo dos.
-    const onClickButton = (msg) => {
-        alert(msg);
+    const onClickButton = () => {
+        props.setOpenModal(true);
     };
 
     return (
         <div className='CreateTodoButtonContainer'>
             <FontAwesomeIcon 
-            // onClick={() => console.log('Click here.')} // Se debe envolver en una funcion. Metodo uno.
-            onClick={() => onClickButton('Here should be open the modal window.')} // Se envuelve en una funcion.
+            onClick={onClickButton}
             icon = {faCirclePlus} className='CreateTodoButton'
             />
         </div>
