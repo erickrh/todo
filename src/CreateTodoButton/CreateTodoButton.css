@@ -1,6 +1,8 @@
 .CreateTodoButtonContainer {
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 100;
 }
 
 .CreateTodoButton {
@@ -15,7 +17,7 @@
     color: #3d63a3;
 }
 
-@keyframes spin {
+/* @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
@@ -23,4 +25,4 @@
     100% {
         transform: rotate(360deg);
     }
-}
+} */

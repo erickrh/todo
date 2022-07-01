@@ -2,11 +2,13 @@ import React from 'react';
 import './CreateTodoButton.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCirclePlus} from '@fortawesome/free-solid-svg-icons';
+import { TodoContext } from '../TodoContext';
 
-function CreateTodoButton(props) {
-    // Metodo dos.
+function CreateTodoButton() {
+    const { openModal, setOpenModal} = React.useContext(TodoContext);
+
     const onClickButton = () => {
-        props.setOpenModal(true);
+        setOpenModal(prevState => !prevState); // Toggle.
     };
 
     return (
