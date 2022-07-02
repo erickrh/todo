@@ -6,6 +6,7 @@ import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
 import { Modal } from "../Modal";
+import { TodoForm } from "../TodoForm";
 // import './App.css';
 
 function AppUI() {
@@ -44,12 +45,12 @@ function AppUI() {
       {/* Si open modal es true, entonces renderiza los componentes y los elementos siguientes */}
       {openModal && (
         <Modal>
-          <p>{searcherTodos[0]?.text}</p> {/* Preguntar si existe el array de todos antes de imprimir la propiedad text. Por lo que si no ha termiando de cargar nuestro local storage los todos, no aparecerá ningún texto. Pero cuando ya carguen, aparecerá. */}
+          <TodoForm />
         </Modal>
       )}
 
       <CreateTodoButton />
-      
+
     </React.Fragment>
   );
 }

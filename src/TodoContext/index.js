@@ -32,6 +32,16 @@ function TodoProvider(props) {
           return todoText.includes(searchText);
         })
       }
+
+      // Añadir Todo
+      const addTodo = (text) => {
+        const newTodos = [...todos];
+        newTodos.unshift({
+          completed: false,
+          text,
+        });
+        saveTodos(newTodos);
+      }
     
       // Marcar check
       const completeTodo = (text) => {
@@ -61,6 +71,7 @@ function TodoProvider(props) {
             setSearchValue,
             searcherTodos,
             completeTodo,
+            addTodo,
             deleteTodo,
             openModal,
             setOpenModal,
