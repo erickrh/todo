@@ -29,6 +29,7 @@ function TodoForm() {
             <label htmlFor="">Escribe tu nuevo TODO</label>
             <textarea
             name="" id="" cols="30" rows="10"
+            autoFocus
             placeholder='Cortar la cebolla'
             value={newTodovalue}
             onChange={onChange}
