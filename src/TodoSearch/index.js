@@ -14,14 +14,16 @@ function TodoSearch() {
 
     return (
         <div className='TodoSearchContainer'>
-            {/* Search Icon */}
-            <FontAwesomeIcon icon = {faMagnifyingGlass} className='iconSearch' />
+            <div className="supportSearchContainer">
+                {/* Search Icon */}
+                <FontAwesomeIcon icon = {faMagnifyingGlass} className='iconSearch' />
 
-            <input
-            autoFocus className='TodoSearch' type="text" placeholder="Buscar"
-            value={searchValue} // React exige conectar el valor de nuestro input con el estado.
-            onChange={onSearchValueChange} // En cada cambio actualiza el estado.
-            />
+                <input
+                autoFocus className='TodoSearch' type="text" placeholder="Buscar"
+                value={searchValue} // React exige conectar el valor de nuestro input con el estado.
+                onChange={onSearchValueChange} // En cada cambio actualiza el estado.
+                />
+            </div>
         </div>
     )
 }

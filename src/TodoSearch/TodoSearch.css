@@ -8,9 +8,20 @@
     align-items: center;
 }
 
-.iconSearch {
+.supportSearchContainer {
+    position: relative;
+}
+
+/* .iconSearch {
     position: relative;
     left: 18.3em;
+    z-index: 30;
+} */
+
+.iconSearch {
+    position: absolute;
+    right: 0.7em;
+    top: 0.6em;
     z-index: 30;
 }
 
