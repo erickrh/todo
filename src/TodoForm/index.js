@@ -24,6 +24,10 @@ function TodoForm() {
         setOpenModal(false);
     };
 
+    const onKeyPress = (e) => {
+        if (e.key === 'Enter') onSubmit(e);
+    };
+
     return (
         <form action="" onSubmit={onSubmit}>
             <label htmlFor="">Escribe tu nuevo TODO</label>
@@ -33,6 +37,7 @@ function TodoForm() {
             placeholder='Cortar la cebolla'
             value={newTodovalue}
             onChange={onChange}
+            onKeyPress={onKeyPress}
             ></textarea>
 
             <div className='TodoForm-buttonContainer'>
