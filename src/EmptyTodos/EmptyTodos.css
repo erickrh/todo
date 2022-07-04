@@ -1,0 +1,9 @@
+.emptyTodosContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.crearImage {
+    width: 293px;
+    border-radius: 20px;
+}

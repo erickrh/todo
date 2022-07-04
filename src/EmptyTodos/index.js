@@ -1,8 +1,12 @@
 import React from 'react';
+import './EmptyTodos.css';
+import crearImage from './crea.png';
 
 function EmptyTodos() {
     return (
-        <p>Crea tu primer TODO</p>
+        <div className="emptyTodosContainer">
+            <img src={crearImage} alt="Crea tu primer TODOS" className='crearImage' />
+        </div>
     );
 };
 
