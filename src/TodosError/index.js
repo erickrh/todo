@@ -1,8 +1,12 @@
 import React from 'react';
+import './TodosError.css';
+import errorImage from './error.png';
 
 function TodosError({ error }) {
     return (
-        <p>Error...</p>
+        <div className="errorContainer">
+            <img src={errorImage} alt="Error" className='errorImage' />
+        </div>
     );
 };
 

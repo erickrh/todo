@@ -4,7 +4,7 @@ import React from "react";
 function useLocalStorage(itemName, initialValue) {
 
     // Estados
-    const [error, setError] = React.useState(false);
+    const [error, setError] = React.useState(true);
     const [loading, setLoading] = React.useState(true);
     const [item, setItem] = React.useState(initialValue);
   
