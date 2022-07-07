@@ -11,10 +11,6 @@ function CreateTodoButton() {
         setOpenModal(prevState => !prevState); // Toggle.
     };
 
-    const animateButton = () => {
-        document.querySelector('.CreateTodoButtonContainer').classList.add('buttonAnimation');
-    }
-
     return (
         <div className='CreateTodoButtonContainer'>
             <FontAwesomeIcon 
