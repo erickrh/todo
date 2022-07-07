@@ -20,8 +20,12 @@ function TodoForm() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        addTodo(newTodovalue);
-        setOpenModal(false);
+        if (newTodovalue.length > 0) {
+            addTodo(newTodovalue);
+            setOpenModal(false);
+        } else {
+            document.querySelector('.textArea').placeholder = "Por favor introduce una tarea.";
+        }
     };
 
     const onKeyPress = (e) => {
@@ -32,7 +36,7 @@ function TodoForm() {
         <form action="" onSubmit={onSubmit}>
             <label htmlFor="">Escribe tu nuevo TODO</label>
             <textarea
-            name="" id="" cols="30" rows="10"
+            name="" id="" cols="30" rows="10" className='textArea'
             autoFocus
             placeholder='Pasear al gato'
             value={newTodovalue}
