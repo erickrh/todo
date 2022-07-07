@@ -29,6 +29,7 @@
 .Icon-check {
     margin-left: 1em;
     margin-right: 1em;
+    cursor: pointer;
 }
 
 .Icon-delete {
@@ -36,6 +37,7 @@
     right: 0.7em;
     top: 0.5em;
     color: #38455b;
+    cursor: pointer;
 }
 
 .Icon-delete:hover {
