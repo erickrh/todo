@@ -34,7 +34,7 @@ function TodoForm() {
             <textarea
             name="" id="" cols="30" rows="10"
             autoFocus
-            placeholder='Cortar la cebolla'
+            placeholder='Pasear al gato'
             value={newTodovalue}
             onChange={onChange}
             onKeyPress={onKeyPress}
