@@ -25,6 +25,7 @@ function TodoForm() {
             setOpenModal(false);
         } else {
             document.querySelector('.textArea').placeholder = "Por favor introduce una tarea.";
+            document.querySelector('.textArea').focus();
         }
     };
 
