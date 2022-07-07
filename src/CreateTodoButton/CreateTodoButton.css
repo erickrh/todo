@@ -19,6 +19,7 @@
     animation-fill-mode: forwards;
     animation-duration: 0.1s;
     font-size: 3em;
+    cursor: pointer;
 }
 
 @keyframes buttonAnimation {
