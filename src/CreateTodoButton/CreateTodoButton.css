@@ -9,19 +9,19 @@
     font-size: 2.5em;
     text-align: center;
     filter: drop-shadow(1.2px 1.2px 1.2px #2374f5);
+    transition: font-size 0.3s;
 }
 
 .CreateTodoButton:hover {
-    animation: spin 1s linear infinite;
     color: #3d63a3;
+    animation-name: buttonAnimation;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-duration: 0.1s;
+    font-size: 3em;
 }
 
-/* @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-} */
+@keyframes buttonAnimation {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(90deg)}
+}
