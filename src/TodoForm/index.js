@@ -29,9 +29,10 @@ function TodoForm() {
         }
     };
 
-    const onKeyPress = (e) => {
-        if (e.key === 'Enter') onSubmit(e);
-    };
+     const onKeyDown = (e) => {
+       if (e.key === 'Enter') onSubmit(e)
+       else if (e.keyCode === 27) onCancel();
+     };
 
     return (
         <form action="" onSubmit={onSubmit}>
@@ -42,7 +43,7 @@ function TodoForm() {
             placeholder='Pasear al gato'
             value={newTodovalue}
             onChange={onChange}
-            onKeyPress={onKeyPress}
+            onKeyDown={onKeyDown}
             ></textarea>
 
             <div className='TodoForm-buttonContainer'>
