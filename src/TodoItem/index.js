@@ -7,7 +7,7 @@ function TodoItem(props) {
 
     return (
         <div className="TodoItemContainer">
-            <li className='TodoItem'>
+            <li className={`TodoItem ${props.darkMode && 'TodoItemDarkMode'}`}>
 
                 {/* Check Icon */}
                 <FontAwesomeIcon
@@ -21,7 +21,7 @@ function TodoItem(props) {
 
                 {/* Delete Icon */}
                 <FontAwesomeIcon
-                    icon = {faTrash} className='Icon Icon-delete' size="xs"
+                    icon = {faTrash} className={`Icon Icon-delete ${props.darkMode && 'Icon-deleteDarkMode'}`} size="xs"
                     onClick={props.onDelete}
                 />
 

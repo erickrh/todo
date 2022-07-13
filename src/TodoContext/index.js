@@ -61,6 +61,19 @@ function TodoProvider(props) {
         saveTodos(newTodos);
       };
 
+      // Dark Mode
+      const [ darkMode, setDarkMode ] = React.useState(false);
+      const darkModeToggle = () => {
+        if (darkMode) {
+          document.body.style.backgroundColor = "white";
+          document.body.style.color = 'black';
+        } else if (!darkMode) {
+          document.body.style.backgroundColor = "#202124";
+          document.body.style.color = '#fff7f7';
+        }
+      };
+
+
     return (
         <TodoContext.Provider value={{
             loading,
@@ -75,6 +88,9 @@ function TodoProvider(props) {
             deleteTodo,
             openModal,
             setOpenModal,
+            darkMode,
+            setDarkMode,
+            darkModeToggle,
         }}>
             {props.children}
         </TodoContext.Provider>

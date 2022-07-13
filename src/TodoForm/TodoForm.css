@@ -12,6 +12,10 @@ form {
   animation-name: slidein;
 }
 
+.formDarkMode {
+  background-color: #4a3c53;
+}
+
 @keyframes slidein {
   from {
     margin-left: 100%;
@@ -32,6 +36,10 @@ label {
   margin-bottom: 26px;
 }
 
+.labelDarkMode {
+  color: #fff7f7;
+}
+
 textarea {
   background-color: #F9FBFC;
   border: 2px solid #202329;
@@ -45,6 +53,11 @@ textarea {
   width: calc(100% - 30px);
   resize: none;
   border-radius: 10px;
+}
+
+.textAreaDarkMode {
+  color: #fff7f7;
+  background-color: #202124;
 }
 
 textarea::placeholder {
@@ -80,13 +93,16 @@ textarea:focus {
 
 .TodoForm-button--add {
   background: #61DAFA;
-  box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
   border-radius: 10px;
   transition: box-shadow 0.3s;
 }
 
 .TodoForm-button--add:hover {
   box-shadow: 1px 2px 5px #888888;
+}
+
+.TodoForm-button--add-darkMode {
+  box-shadow: 1px 1px 1px #888888;
 }
   
 .TodoForm-button--cancel {

@@ -5,7 +5,7 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import { TodoContext } from '../TodoContext';
 
 function TodoSearch() {
-    const { searchValue, setSearchValue } = React.useContext(TodoContext);
+    const { searchValue, setSearchValue, darkMode } = React.useContext(TodoContext);
 
     const onSearchValueChange = (event) => {
         console.log(event.target.value);
@@ -16,10 +16,10 @@ function TodoSearch() {
         <div className='TodoSearchContainer'>
             <div className="supportSearchContainer">
                 {/* Search Icon */}
-                <FontAwesomeIcon icon = {faMagnifyingGlass} className='iconSearch' />
+                <FontAwesomeIcon icon = {faMagnifyingGlass} className={`iconSearch ${darkMode && 'iconSearchDarkMode'}`} />
 
                 <input
-                autoFocus className='TodoSearch' type="text" placeholder="Buscar"
+                autoFocus className={`TodoSearch ${darkMode && 'TodoSearchDarkMode'}`} type="text" placeholder="Buscar"
                 value={searchValue} // React exige conectar el valor de nuestro input con el estado.
                 onChange={onSearchValueChange} // En cada cambio actualiza el estado.
                 />

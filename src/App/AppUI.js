@@ -10,6 +10,7 @@ import { TodoForm } from "../TodoForm";
 import { TodosLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
+import { DarkMode } from "../DarkMode";
 // import './App.css';
 
 function AppUI() {
@@ -21,10 +22,14 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    darkMode,
   } = React.useContext(TodoContext);
 
   return (
     <React.Fragment>
+      
+      <DarkMode />
+
       <TodoCounter />
 
       <TodoSearch />
@@ -45,6 +50,7 @@ function AppUI() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
+            darkMode={darkMode}
           />
         ))}
       </TodoList>

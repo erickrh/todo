@@ -23,6 +23,7 @@
     right: 0.7em;
     top: 0.6em;
     z-index: 30;
+    color: black;
 }
 
 .TodoSearch {
@@ -36,4 +37,13 @@
 
 .TodoSearch:focus {
     outline: #4286f4 solid 1px;
+}
+
+.iconSearchDarkMode {
+    color: #fff7f7;
+}
+
+.TodoSearchDarkMode {
+    background-color: #202124;
+    color: #fff7f7;
 }

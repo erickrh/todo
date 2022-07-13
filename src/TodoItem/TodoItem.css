@@ -26,6 +26,11 @@
     box-shadow: 0.5px 0.5px 6px #cccbcb;
 }
 
+.TodoItemDarkMode {
+    border: #394f5c solid 1px;
+    box-shadow: 0.5px 0.5px 6px #5c3233;
+}
+
 .Icon-check {
     margin-left: 1em;
     margin-right: 1em;
@@ -42,4 +47,8 @@
 
 .Icon-delete:hover {
     color: red;
+}
+
+.Icon-deleteDarkMode {
+    color: #407bda;
 }

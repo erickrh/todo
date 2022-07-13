@@ -8,6 +8,7 @@ function TodoForm() {
     const {
         addTodo,
         setOpenModal,
+        darkMode,
     } = React.useContext(TodoContext);
 
     const onChange = (event) => {
@@ -35,10 +36,10 @@ function TodoForm() {
      };
 
     return (
-        <form action="" onSubmit={onSubmit}>
-            <label htmlFor="">Escribe tu nuevo TODO</label>
+        <form action="" onSubmit={onSubmit} className={`${darkMode && 'formDarkMode'}`}>
+            <label className={`${darkMode && 'labelDarkMode'}`} htmlFor="">Escribe tu nuevo TODO</label>
             <textarea
-            name="" id="" cols="30" rows="10" className='textArea'
+            cols="30" rows="10" className={`textArea ${darkMode && 'textAreaDarkMode'}`}
             autoFocus
             placeholder='Pasear al gato'
             value={newTodovalue}
@@ -55,7 +56,7 @@ function TodoForm() {
                 </button>
 
                 <button
-                className='TodoForm-button TodoForm-button--add'
+                className={`TodoForm-button TodoForm-button--add ${darkMode && 'TodoForm-button--add-darkMode'}`}
                 type='submit'>
                     Añadir
                 </button>
