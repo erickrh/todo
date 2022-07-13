@@ -1,6 +1,6 @@
 import React from 'react';
 import { TodoContext } from '../TodoContext';
-import profile from './profile.png';
+import logo from './logo.png';
 
 // Manera de estilizar con CSS
 const estilos = {
@@ -16,8 +16,8 @@ const estilos = {
   position: "relative",
 };
 
-const profileCSS = {
-  width: "3.5em",
+const logoCSS = {
+  width: "3em",
   marginRight: "0.5em",
 };
 
@@ -27,9 +27,9 @@ function TodoCounter() {
   return (
     <React.Fragment>
       <div style={estilos}>
-        <img src={profile} alt="Foto de perfil" style={profileCSS} />
+        <img src={logo} alt="logo" style={logoCSS} />
         <div>
-          <h2>Hola, Erick.</h2>{" "}
+          <h2>¡Hola!</h2>
           {/*Otra manera, con doble llaves {{color: red}} */}
           <p style={{ fontWeight: "400", marginTop: "-1em" }}>
             Has completado {completedTodos} de {totalTodos} TODO's{" "}
