@@ -4,19 +4,19 @@ import './Modal.css';
 import { TodoContext } from '../TodoContext';
 
 function Modal({ children }) {
-    const { setOpenModal } = React.useContext(TodoContext);
+  const { setOpenModal } = React.useContext(TodoContext);
 
-    const hideModalClickOutside = () => {
-        setOpenModal(false);
-    };
+  const hideModalClickOutside = () => {
+    setOpenModal(false);
+  };
     
-    return ReactDOM.createPortal(
-        <div className='ModalBackground'>
-            {children}
-            <div className='clickOutside' onClick={hideModalClickOutside}></div>
-        </div>,
-        document.getElementById('modal')
-    );
+  return ReactDOM.createPortal(
+    <div className='ModalBackground'>
+      {children}
+      <div className='clickOutside' onClick={hideModalClickOutside}></div>
+    </div>,
+    document.getElementById('modal')
+  );
 }
 
 export { Modal };

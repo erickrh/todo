@@ -1,17 +1,16 @@
-import React from "react";
-import { TodoContext } from "../TodoContext";
-import { TodoCounter } from "../TodoCounter";
-import { TodoItem } from "../TodoItem";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { Modal } from "../Modal";
-import { TodoForm } from "../TodoForm";
-import { TodosLoading } from "../TodosLoading";
-import { TodosError } from "../TodosError";
-import { EmptyTodos } from "../EmptyTodos";
-import { DarkMode } from "../DarkMode";
-// import './App.css';
+import React from 'react';
+import { TodoContext } from '../TodoContext';
+import { TodoCounter } from '../TodoCounter';
+import { TodoItem } from '../TodoItem';
+import { CreateTodoButton } from '../CreateTodoButton';
+import { TodoSearch } from '../TodoSearch';
+import { TodoList } from '../TodoList';
+import { Modal } from '../Modal';
+import { TodoForm } from '../TodoForm';
+import { TodosLoading } from '../TodosLoading';
+import { TodosError } from '../TodosError';
+import { EmptyTodos } from '../EmptyTodos';
+import { DarkMode } from '../DarkMode';
 
 function AppUI() {
   const {
@@ -21,7 +20,6 @@ function AppUI() {
     completeTodo,
     deleteTodo,
     openModal,
-    setOpenModal,
     darkMode,
   } = React.useContext(TodoContext);
 
@@ -38,8 +36,8 @@ function AppUI() {
         {error && <TodosError error={error} />}
 
         {loading && 
-          new Array(3).fill().map((item, index) => <TodosLoading key={index} />
-        )}
+          new Array(3).fill(undefined, undefined, undefined).map((item, index) => <TodosLoading key={index} />
+          )}
         
         {!loading && !searcherTodos.length && <EmptyTodos />}
 
