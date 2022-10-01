@@ -33,11 +33,11 @@ function TodoItem(props) {
 
 // Fix for 'React eslint error missing in props validation'
 TodoItem.propTypes = {
-  darkMode: PropTypes.node.isRequired,
-  completed: PropTypes.node.isRequired,
-  onComplete: PropTypes.node.isRequired,
+  darkMode: PropTypes.bool.isRequired,
+  completed: PropTypes.bool.isRequired,
+  onComplete: PropTypes.any.isRequired,
   text: PropTypes.string.isRequired,
-  onDelete: PropTypes.node.isRequired,
+  onDelete: PropTypes.any.isRequired,
 };
 
 export { TodoItem };

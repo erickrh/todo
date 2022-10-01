@@ -8,7 +8,7 @@ import { AppUI } from './AppUI';
 //   { text: 'Ir a la universidad', completed: false },
 // ];
 
-// localStorage.setItem('TODOS_V1', JSON.stringify([{ text: 'Estudiar esperanto', completed: true }, { text: 'Hacer ejecicio', completed: false }, { text: 'Ir a la universidad', completed: false }]));
+// localStorage.setItem('TODOS_V1', JSON.stringify([{ text: 'Estudiar esperanto', completed: true }, { text: 'Hacer ejercicio', completed: false }, { text: 'Ir a la universidad', completed: false }]));
 
 function App() {
   return (

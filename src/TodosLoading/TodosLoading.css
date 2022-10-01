@@ -1,61 +1,61 @@
 .LoadingTodo-container {
-    background-color: white;
-    max-width: 20em;
-    padding: 0.5em;
-    margin: 0 auto;
+  background-color: white;
+  max-width: 20em;
+  padding: 0.5em;
+  margin: 0 auto;
 }
 
 .background {
-    border-radius: 10px;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: preloadAnimation;
-    animation-timing-function: linear;
-    background: #f6f7f8;
-    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-    display: flex;
-    align-items: center;
-	min-height: 80px;
-    position: relative;
+  border-radius: 10px;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: preloadAnimation;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  position: relative;
 }
 
 @keyframes preloadAnimation {
-    0%{
-        background-position: -500px
-    }
-    100%{
-        background-position: 500px
-    }
+  0% {
+    background-position: -500px
+  }
+  100% {
+    background-position: 500px
+  }
 }
 
 .LoadingTodo-completeIcon {
-    border: 1px solid #e5e6e9;
-    border-radius: 10px;
-    background: lightgray;
-    height: 15px;
-    width: 15px;
-    margin-left: 1em;
+  border: 1px solid #e5e6e9;
+  border-radius: 10px;
+  background: lightgray;
+  height: 15px;
+  width: 15px;
+  margin-left: 1em;
 }
 
 .LoadingTodo-text {
-    background: lightgray;
-    border: 1px solid #e5e6e9;
-    border-radius: 2px;
-    height: 10px;
-    width: 13.5em;
-    margin-left: 2em;
+  background: lightgray;
+  border: 1px solid #e5e6e9;
+  border-radius: 2px;
+  height: 10px;
+  width: 13.5em;
+  margin-left: 2em;
 }
 
 .LoadingTodo-deleteIcon {
-    border: 1px solid #e5e6e9;
-    border-radius: 10px;
-    background: lightgray;
-    height: 15px;
-    width: 15px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 5px;
-    margin-right: 5px;
+  border: 1px solid #e5e6e9;
+  border-radius: 10px;
+  background: lightgray;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 5px;
+  margin-right: 5px;
 }

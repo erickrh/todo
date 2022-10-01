@@ -34,7 +34,7 @@ function TodoProvider(props) {
     });
   }
 
-  // Añadir Todo
+  // Añadir To-do
   const addTodo = (text) => {
     const newTodos = [...todos];
     newTodos.unshift({

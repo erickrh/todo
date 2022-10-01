@@ -1,49 +1,43 @@
 .TodoSearchContainer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 8.9em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8.9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .supportSearchContainer {
-    position: relative;
+  position: relative;
 }
 
-/* .iconSearch {
-    position: relative;
-    left: 18.3em;
-    z-index: 30;
-} */
-
 .iconSearch {
-    position: absolute;
-    right: 0.7em;
-    top: 0.6em;
-    z-index: 30;
-    color: black;
+  position: absolute;
+  right: 0.7em;
+  top: 0.6em;
+  z-index: 30;
+  color: black;
 }
 
 .TodoSearch {
-    height: 2.5em;
-    width: 22em;
-    outline: none;
-    padding-left: 0.5em;
-    border: 1px solid gray;
-    border-radius: 5px;
+  height: 2.5em;
+  width: 22em;
+  outline: none;
+  padding-left: 0.5em;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 
 .TodoSearch:focus {
-    outline: #4286f4 solid 1px;
+  outline: #4286f4 solid 1px;
 }
 
 .iconSearchDarkMode {
-    color: #fff7f7;
+  color: #fff7f7;
 }
 
 .TodoSearchDarkMode {
-    background-color: #202124;
-    color: #fff7f7;
+  background-color: #202124;
+  color: #fff7f7;
 }

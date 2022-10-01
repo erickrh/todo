@@ -1,28 +1,32 @@
 .CreateTodoButtonContainer {
-    display: flex;
-    justify-content: center;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .CreateTodoButton {
-    color: #4286f3;
-    font-size: 2.5em;
-    text-align: center;
-    filter: drop-shadow(1px 1px 1px #2374f5);
-    transition: font-size 0.3s;
+  color: #4286f3;
+  font-size: 2.5em;
+  text-align: center;
+  filter: drop-shadow(1px 1px 1px #2374f5);
+  transition: font-size 0.3s;
 }
 
 .CreateTodoButton:hover {
-    color: #3d63a3;
-    animation-name: buttonAnimation;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    animation-duration: 0.1s;
-    font-size: 3em;
-    cursor: pointer;
+  color: #3d63a3;
+  animation-name: buttonAnimation;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-duration: 0.1s;
+  font-size: 3em;
+  cursor: pointer;
 }
 
 @keyframes buttonAnimation {
-    from {transform: rotate(0deg)}
-    to {transform: rotate(90deg)}
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(90deg)
+  }
 }

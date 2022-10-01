@@ -12,7 +12,7 @@ function useLocalStorage(itemName, initialValue) {
   React.useEffect(() => {
     setTimeout(() => {
       try {
-        // Obtener TODO'S de local storage
+        // Obtener TO-DOs de local storage
         const localStorageItem = localStorage.getItem(itemName);
         let parsedItem;
   

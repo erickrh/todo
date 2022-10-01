@@ -9,21 +9,21 @@ form {
   flex-direction: column;
   border-radius: 10px;
   animation-duration: 0.5s;
-  animation-name: slidein;
+  animation-name: slide-in;
 }
 
 .formDarkMode {
   background-color: #4a3c53;
 }
 
-@keyframes slidein {
+@keyframes slide-in {
   from {
     margin-left: 100%;
     width: 300%;
   }
 
   to {
-    margin-left: 0%;
+    margin-left: 0;
     width: 100%;
   }
 }
@@ -43,8 +43,7 @@ label {
 textarea {
   background-color: #F9FBFC;
   border: 2px solid #202329;
-  border-radius: 2px;
-  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+  box-shadow: 0 5px 50px rgba(32, 35, 41, 0.25);
   color: #1E1E1F;
   font-size: 17px;
   text-align: center;
@@ -62,7 +61,7 @@ textarea {
 
 textarea::placeholder {
   color: #A5A5A5;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-weight: 400;
 }
 
@@ -88,7 +87,7 @@ textarea:focus {
   height: 44px;
   border-radius: 2px;
   border: none;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
 }
 
 .TodoForm-button--add {
@@ -104,9 +103,8 @@ textarea:focus {
 .TodoForm-button--add-darkMode {
   box-shadow: 1px 1px 1px #888888;
 }
-  
+
 .TodoForm-button--cancel {
-  background: transparent;
   border-radius: 10px;
   background-color: #ef5e5e;
   transition: box-shadow 0.3s;
