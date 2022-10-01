@@ -8,7 +8,7 @@
     color: #4286f3;
     font-size: 2.5em;
     text-align: center;
-    filter: drop-shadow(1.2px 1.2px 1.2px #2374f5);
+    filter: drop-shadow(1px 1px 1px #2374f5);
     transition: font-size 0.3s;
 }
 

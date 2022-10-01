@@ -9,7 +9,6 @@
 .TodoItemContainer {
     display: flex;
     justify-content: center;
-    /* margin-left: -1.9em; */
 }
 
 .TodoItem {
@@ -23,12 +22,12 @@
     position: relative;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    box-shadow: 0.5px 0.5px 6px #cccbcb;
+    box-shadow: 1px 1px 6px #cccbcb;
 }
 
 .TodoItemDarkMode {
     border: #394f5c solid 1px;
-    box-shadow: 0.5px 0.5px 6px #5c3233;
+    box-shadow: 1px 1px 6px #5c3233;
 }
 
 .Icon-check {

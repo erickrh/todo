@@ -4,7 +4,7 @@ import { AppUI } from './AppUI';
 
 // const defaultTodos = [
 //   { text: 'Estudiar esperanto', completed: true },
-//   { text: 'Hacer ejecicio', completed: false },
+//   { text: 'Hacer ejercicio', completed: false },
 //   { text: 'Ir a la universidad', completed: false },
 // ];
 
