@@ -1,7 +1,7 @@
 import React from 'react';
 import './CreateTodoButton.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCirclePlus} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { TodoContext } from '../TodoContext';
 
 function CreateTodoButton() {

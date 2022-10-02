@@ -1,7 +1,7 @@
 import React from 'react';
 import './TodoItem.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCheck, faTrash} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 function TodoItem(props) {
