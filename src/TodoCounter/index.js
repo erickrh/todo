@@ -1,6 +1,6 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import logo from './logo.png';
+import PropTypes from 'prop-types';
 
 // Manera de estilizar con CSS
 const estilos = {
@@ -21,8 +21,7 @@ const logoCSS = {
   marginRight: '0.5em',
 };
 
-function TodoCounter() {
-  const { totalTodos, completedTodos } = React.useContext(TodoContext);
+function TodoCounter({ totalTodos, completedTodos }) {
 
   return (
     <React.Fragment>
@@ -39,5 +38,10 @@ function TodoCounter() {
     </React.Fragment>
   );
 }
+
+TodoCounter.propTypes = {
+  totalTodos: PropTypes.number.isRequired,
+  completedTodos: PropTypes.number.isRequired,
+};
 
 export { TodoCounter };

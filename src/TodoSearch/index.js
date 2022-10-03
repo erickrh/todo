@@ -2,13 +2,11 @@ import React from 'react';
 import './TodoSearch.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { TodoContext } from '../TodoContext';
 
-function TodoSearch() {
-  const { searchValue, setSearchValue, darkMode } = React.useContext(TodoContext);
+// eslint-disable-next-line react/prop-types
+function TodoSearch({ searchValue, setSearchValue, darkMode }) {
 
   const onSearchValueChange = (event) => {
-    console.log(event.target.value);
     setSearchValue(event.target.value); // Se actualizará el estado.
   };
 

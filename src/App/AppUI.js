@@ -11,6 +11,7 @@ import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { DarkMode } from '../DarkMode';
+import { TodoHeader } from '../TodoHeader';
 
 function AppUI() {
   const {
@@ -21,16 +22,30 @@ function AppUI() {
     deleteTodo,
     openModal,
     darkMode,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
   } = React.useContext(TodoContext);
 
   return (
     <React.Fragment>
       
-      <DarkMode />
+      <TodoHeader>
+        
+        <DarkMode />
 
-      <TodoCounter />
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}
+        />
 
-      <TodoSearch />
+        <TodoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          darkMode={darkMode}
+        />
+      </TodoHeader>
 
       <TodoList>
         {error && <TodosError error={error} />}
