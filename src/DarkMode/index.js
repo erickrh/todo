@@ -1,12 +1,10 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import { BsMoonFill } from 'react-icons/bs';
 import { BsSunFill } from 'react-icons/bs';
 import './DarkMode.css';
 
-function DarkMode() {
-  const { darkMode, setDarkMode, darkModeToggle } = React.useContext(TodoContext);
-
+function DarkMode({ darkMode, setDarkMode, darkModeToggle }) {
+  
   const changeIconState = () => {
     setDarkMode(prevState => !prevState);
     darkModeToggle();

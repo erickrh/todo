@@ -1,10 +1,7 @@
 import React from 'react';
 import { useLocalStorage } from './useLocalStorage';
-import PropTypes from 'prop-types';
 
-const TodoContext = React.createContext(undefined);
-
-function TodoProvider(props) {
+function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
@@ -75,32 +72,23 @@ function TodoProvider(props) {
   };
 
 
-  return (
-    <TodoContext.Provider value={{
-      loading,
-      error,
-      totalTodos,
-      completedTodos,
-      searchValue,
-      setSearchValue,
-      searcherTodos,
-      completeTodo,
-      addTodo,
-      deleteTodo,
-      openModal,
-      setOpenModal,
-      darkMode,
-      setDarkMode,
-      darkModeToggle,
-    }}>
-      {props.children}
-    </TodoContext.Provider>
-  );
+  return {
+    loading,
+    error,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    searcherTodos,
+    completeTodo,
+    addTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+    darkMode,
+    setDarkMode,
+    darkModeToggle,
+  };
 }
 
-// Fix for 'React eslint error missing in props validation'
-TodoProvider.propTypes = {
-  children: PropTypes.node.isRequired
-};
-
-export { TodoContext, TodoProvider };
+export { useTodos };

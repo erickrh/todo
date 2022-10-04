@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
-import { TodoContext } from '../TodoContext';
 
-function Modal({ children }) {
-  const { setOpenModal } = React.useContext(TodoContext);
-
+function Modal({ children, setOpenModal }) {
+  
   const hideModalClickOutside = () => {
     setOpenModal(false);
   };
