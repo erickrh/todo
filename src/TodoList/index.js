@@ -1,20 +1,31 @@
 import React from 'react';
 import './TodoList.css';
-import PropTypes from 'prop-types';
 
 function TodoList(props) {
+  const renderfunc = props.children || props.render;
+
   return (
     <section>
+      {props.error && props.onError()}
+      
+      {props.loading && props.onLoading()}
+      
+      {(!props.loading && !props.searcherTodos.length && !props.totalTodos) && props.onEmptyTodos()}
+
+      {(!!props.totalTodos && !props.searcherTodos.length) && props.onEmptySearchResults()}
+      
       <ul className='TodoListContainer'>
-        {props.children}
+        
+        {/* {props.children} */}
+        
+        {props.searcherTodos.map(renderfunc)}
+        
+        {/* Otra manera de realizarlo:
+      {props.searcherTodos.map(todo => props.render(todo))} */}
+        
       </ul>
     </section>
   );
 }
-
-// Fix for 'React eslint error missing in props validation'
-TodoList.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export { TodoList };

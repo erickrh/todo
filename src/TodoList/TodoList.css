@@ -1,5 +1,8 @@
 .TodoListContainer {
-  margin-top: 2.4em;
   padding-left: 0;
   margin-left: 0;
+}
+
+section, .TodoListContainer {
+  margin-top: 2.4em;
 }

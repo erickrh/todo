@@ -12,6 +12,7 @@ import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { DarkMode } from '../DarkMode';
 import { TodoHeader } from '../TodoHeader';
+import { EmptySearchResults } from '../EmptySearchResults';
 
 // const defaultTodos = [
 //   { text: 'Estudiar esperanto', completed: true },
@@ -62,8 +63,46 @@ function App() {
           darkMode={darkMode}
         />
       </TodoHeader>
-
-      <TodoList>
+      
+      <TodoList
+        error={error}
+        loading={loading}
+        searcherTodos={searcherTodos}
+        totalTodos={totalTodos}
+        onError={() => <TodosError />}
+        onLoading={() => (
+          new Array(3)
+            .fill(1)
+            .map((item, index) => <TodosLoading key={index}/>)
+        )}
+        onEmptyTodos={() => <EmptyTodos />}
+        onEmptySearchResults={() => <EmptySearchResults searchValue={searchValue} />}
+        render={todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+            darkMode={darkMode}
+          />
+        )}
+      >
+        {todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+            darkMode={darkMode}
+          />
+        )}
+      </TodoList> 
+      
+      
+      
+      {/*<TodoList>
         {error && <TodosError error={error} />}
 
         {loading &&
@@ -82,7 +121,7 @@ function App() {
             darkMode={darkMode}
           />
         ))}
-      </TodoList>
+      </TodoList>*/}
 
       {/* Si open modal es true, entonces renderiza los componentes y los elementos siguientes */}
       {openModal && (
