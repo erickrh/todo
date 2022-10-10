@@ -3,7 +3,7 @@ import { BsMoonFill } from 'react-icons/bs';
 import { BsSunFill } from 'react-icons/bs';
 import './DarkMode.css';
 
-function DarkMode({ darkMode, setDarkMode, darkModeToggle }) {
+function DarkMode({ darkMode, setDarkMode, darkModeToggle, loading }) {
   
   const changeIconState = () => {
     setDarkMode(prevState => !prevState);
@@ -11,9 +11,9 @@ function DarkMode({ darkMode, setDarkMode, darkModeToggle }) {
   };
     
   return (
-    <div className=''>
+    <div>
       <BsMoonFill
-        className={`icon ${darkMode && 'icon-deactivated'}`}
+        className={`icon ${darkMode && 'icon-deactivated'} ${loading && 'darkMode--disabled'}`}
         onClick={changeIconState}
       />
 

@@ -1,3 +1,7 @@
-.TodoCounter--loading {
+.TodoCounter {
+  transition: 1s;
+} 
+
+.counter--loading {
   opacity: 25%;
 }

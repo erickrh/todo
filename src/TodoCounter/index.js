@@ -27,8 +27,8 @@ function TodoCounter({ totalTodos, completedTodos, loading }) {
   return (
     <React.Fragment>
       <div style={estilos}>
-        <img src={logo} alt="logo" style={logoCSS} />
-        <div className={`TodoCounter ${loading && 'TodoCounter--loading'}`}>
+        <img src={logo} alt="logo" style={logoCSS} className={`logo ${loading && 'counter--loading'}`} />
+        <div className={`TodoCounter ${loading && 'counter--loading'}`}>
           <h2>¡Hola!</h2>
           {/*Otra manera, con doble llaves {{color: red}} */}
           <p style={{ fontWeight: '400', marginTop: '-1em' }}>

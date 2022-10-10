@@ -27,6 +27,7 @@
   padding-left: 0.5em;
   border: 1px solid gray;
   border-radius: 5px;
+  transition: 1s;
 }
 
 .TodoSearch:disabled {

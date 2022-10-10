@@ -1,3 +1,8 @@
+.darkMode--disabled {
+  opacity: 25%;
+  pointer-events: none;
+}
+
 .icon {
   position: fixed;
   z-index: 1;
