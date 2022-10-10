@@ -2,7 +2,7 @@ import React from 'react';
 import './TodoList.css';
 
 function TodoList(props) {
-  const renderfunc = props.children || props.render;
+  const renderFunc = props.children || props.render;
 
   return (
     <section>
@@ -18,7 +18,7 @@ function TodoList(props) {
         
         {/* {props.children} */}
         
-        {props.searcherTodos.map(renderfunc)}
+        {props.searcherTodos.map(renderFunc)}
         
         {/* Otra manera de realizarlo:
       {props.searcherTodos.map(todo => props.render(todo))} */}
