@@ -29,6 +29,14 @@
   border-radius: 5px;
 }
 
+.TodoSearch:disabled {
+  opacity: 25%;
+}
+
+.iconSearch--disabled {
+  opacity: 25%;
+}
+
 .TodoSearch:focus {
   outline: #4286f4 solid 1px;
 }

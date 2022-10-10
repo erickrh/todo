@@ -1,16 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-function TodoHeader({ children }) {
+function TodoHeader({ children, loading }) {
   return (
     <header>
-      {children}
+      {
+        React.Children
+          .toArray(children)
+          .map(child => React.cloneElement(child, { loading }))
+      }
     </header>
   );
 }
-
-TodoHeader.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export { TodoHeader };

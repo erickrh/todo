@@ -1,4 +1,5 @@
 import React from 'react';
+import './TodoCounter.css';
 import logo from './logo.png';
 import PropTypes from 'prop-types';
 
@@ -21,13 +22,13 @@ const logoCSS = {
   marginRight: '0.5em',
 };
 
-function TodoCounter({ totalTodos, completedTodos }) {
+function TodoCounter({ totalTodos, completedTodos, loading }) {
 
   return (
     <React.Fragment>
       <div style={estilos}>
         <img src={logo} alt="logo" style={logoCSS} />
-        <div>
+        <div className={`TodoCounter ${loading && 'TodoCounter--loading'}`}>
           <h2>¡Hola!</h2>
           {/*Otra manera, con doble llaves {{color: red}} */}
           <p style={{ fontWeight: '400', marginTop: '-1em' }}>

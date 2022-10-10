@@ -44,7 +44,7 @@ function App() {
   return (
     <React.Fragment>
 
-      <TodoHeader>
+      <TodoHeader loading={loading}>
 
         <DarkMode
           darkMode={darkMode}
@@ -55,12 +55,14 @@ function App() {
         <TodoCounter
           totalTodos={totalTodos}
           completedTodos={completedTodos}
+          /*loading={loading}*/
         />
 
         <TodoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           darkMode={darkMode}
+          /*loading={loading}*/
         />
       </TodoHeader>
       
