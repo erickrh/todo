@@ -13,6 +13,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { DarkMode } from '../DarkMode';
 import { TodoHeader } from '../TodoHeader';
 import { EmptySearchResults } from '../EmptySearchResults';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
 // const defaultTodos = [
 //   { text: 'Estudiar esperanto', completed: true },
@@ -39,6 +40,7 @@ function App() {
     setSearchValue,
     setOpenModal,
     addTodo,
+    sincronizeTodos,
   } = useTodos();
 
   return (
@@ -137,6 +139,10 @@ function App() {
       )}
 
       <CreateTodoButton setOpenModal={setOpenModal} />
+
+      <ChangeAlertWithStorageListener
+        sincronize={sincronizeTodos}
+      />
 
     </React.Fragment>
   );
