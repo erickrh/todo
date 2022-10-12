@@ -7,7 +7,7 @@ function useTodos() {
     saveItem: saveTodos,
     loading,
     error,
-    sincronizeItem: sincronizeTodos,
+    synchronizeItem: synchronizeTodos,
   } = useLocalStorage('TODOS_V1', []);
     
   // Estado de TodoSearch
@@ -89,7 +89,7 @@ function useTodos() {
     darkMode,
     setDarkMode,
     darkModeToggle,
-    sincronizeTodos,
+    synchronizeTodos,
   };
 }
 

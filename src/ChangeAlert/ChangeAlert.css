@@ -1,0 +1,29 @@
+.ChangeAlert-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1e1e1f50;
+  z-index: 2;
+}
+
+.ChangeAlert-container {
+  position: fixed;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  padding: 34px;
+  text-align: center;
+  color: whitesmoke;
+  background-color: #262626;
+}
+
+.ChangeAlert-container button {
+  font-family: 'Poppins', sans-serif;
+  padding: 10px 25px;
+  background-color: #b3e0ff;
+  border: none;
+  box-shadow: 0 0 10px white;
+  cursor: pointer;
+}
