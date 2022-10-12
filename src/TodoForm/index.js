@@ -45,13 +45,13 @@ function TodoForm({ addTodo, setOpenModal, darkMode }) {
           onClick={onCancel}
           type="button"
           className='TodoForm-button TodoForm-button--cancel'>
-                    Cancelar
+            Cancelar
         </button>
 
         <button
           className={`TodoForm-button TodoForm-button--add ${darkMode && 'TodoForm-button--add-darkMode'}`}
           type='submit'>
-                    Añadir
+            Añadir
         </button>
       </div>
     </form>

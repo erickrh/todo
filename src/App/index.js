@@ -57,14 +57,12 @@ function App() {
         <TodoCounter
           totalTodos={totalTodos}
           completedTodos={completedTodos}
-          /*loading={loading}*/
         />
 
         <TodoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           darkMode={darkMode}
-          /*loading={loading}*/
         />
       </TodoHeader>
       
@@ -106,26 +104,29 @@ function App() {
       
       
       
-      {/*<TodoList>
-        {error && <TodosError error={error} />}
+      {/* With Custom Hooks:
+    
+        <TodoList>
+          {error && <TodosError error={error} />}
 
-        {loading &&
-          new Array(3).fill(undefined, undefined, undefined).map((item, index) => <TodosLoading key={index} />
-          )}
+          {loading &&
+            new Array(3).fill(undefined, undefined, undefined).map((item, index) => <TodosLoading key={index} />
+            )}
 
-        {!loading && !searcherTodos.length && <EmptyTodos />}
+          {!loading && !searcherTodos.length && <EmptyTodos />}
 
-        {searcherTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-            darkMode={darkMode}
-          />
-        ))}
-      </TodoList>*/}
+          {searcherTodos.map((todo) => (
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+              darkMode={darkMode}
+            />
+          ))}
+        </TodoList>
+      */}
 
       {/* Si open modal es true, entonces renderiza los componentes y los elementos siguientes */}
       {openModal && (

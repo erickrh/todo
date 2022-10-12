@@ -3,7 +3,6 @@ import './TodoSearch.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-// eslint-disable-next-line react/prop-types
 function TodoSearch({ searchValue, setSearchValue, darkMode, loading }) {
 
   const onSearchValueChange = (event) => {

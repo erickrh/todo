@@ -7,6 +7,7 @@ function TodoList(props) {
   return (
     <section>
       {props.error && props.onError()}
+      
       {props.loading && props.onLoading()}
       
       {(!props.loading && !props.searcherTodos.length && !props.totalTodos) && props.onEmptyTodos()}
