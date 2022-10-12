@@ -13,7 +13,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { DarkMode } from '../DarkMode';
 import { TodoHeader } from '../TodoHeader';
 import { EmptySearchResults } from '../EmptySearchResults';
-import { ChangeAlertWithStorageListener } from '../ChangeAlert';
+import { ChangeAlert } from '../ChangeAlert';
 
 // const defaultTodos = [
 //   { text: 'Estudiar esperanto', completed: true },
@@ -140,7 +140,7 @@ function App() {
 
       <CreateTodoButton setOpenModal={setOpenModal} />
 
-      <ChangeAlertWithStorageListener
+      <ChangeAlert
         synchronize={synchronizeTodos}
       />
 
