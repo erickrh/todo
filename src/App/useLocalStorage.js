@@ -34,7 +34,7 @@ function useLocalStorage(itemName, initialValue) {
   }, [synchronizedItem]); // Array vacío para que se ejecute solo una vez al abrir la app, en el primer render.
     
   // Persistencia de los todos con localstorage.
-  const saveItem = (newItem) => {
+  const saveItem = (newItem) => { // Estado derivado.
     try {
       const stringifiesTodos = JSON.stringify(newItem);
       localStorage.setItem(itemName, stringifiesTodos);

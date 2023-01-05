@@ -19,9 +19,10 @@ function useTodos() {
   // TodoCounter
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
+  /* completedTodos & totalTodos, son estados derivados, ya que son creados a partir de un estado independiente, como lo es todos proveniente de useLocalStorage. */
       
   // Filtro
-  let searcherTodos;
+  let searcherTodos; // Estado derivado.
   if (!searchValue.length >= 1) {
     searcherTodos = todos;
   } else {
