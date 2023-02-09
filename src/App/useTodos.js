@@ -73,25 +73,31 @@ function useTodos() {
     }
   };
 
-
-  return {
+  // Estados
+  const states = {
     loading,
     error,
     totalTodos,
     completedTodos,
     searchValue,
-    setSearchValue,
     searcherTodos,
+    openModal,
+    darkMode,
+  };
+
+  // Actualizadores del estado
+  const statesUpdaters = {
+    setSearchValue,
     completeTodo,
     addTodo,
     deleteTodo,
-    openModal,
     setOpenModal,
-    darkMode,
     setDarkMode,
     darkModeToggle,
     synchronizeTodos,
   };
+
+  return { states, statesUpdaters };
 }
 
 export { useTodos };

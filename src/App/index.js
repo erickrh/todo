@@ -24,24 +24,29 @@ import { ChangeAlert } from '../ChangeAlert';
 // localStorage.setItem('TODOS_V1', JSON.stringify([{ text: 'Estudiar esperanto', completed: true }, { text: 'Hacer ejercicio', completed: false }, { text: 'Ir a la universidad', completed: false }]));
 
 function App() {
+  const { states, statesUpdaters } = useTodos();
+
   const {
     error,
     loading,
     searcherTodos,
-    completeTodo,
-    deleteTodo,
+    searchValue,
     openModal,
     darkMode,
-    setDarkMode,
-    darkModeToggle,
     totalTodos,
-    completedTodos,
-    searchValue,
+    completedTodos
+  } = states;
+  
+  const {
+    addTodo,
+    completeTodo,
+    deleteTodo,
+    synchronizeTodos,
+    darkModeToggle,
+    setDarkMode,
     setSearchValue,
     setOpenModal,
-    addTodo,
-    synchronizeTodos,
-  } = useTodos();
+  } = statesUpdaters;
 
   return (
     <React.Fragment>

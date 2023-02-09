@@ -4,6 +4,8 @@ import React from 'react';
 function useLocalStorage(itemName, initialValue) {
 
   const [state, dispatch] = React.useReducer(reducer, initialState({ initialValue }));
+
+  // Se destructura para evitar escribir en cada una de las variables state. como prefijo. Ejemplo state.error
   const {
     synchronizedItem,
     error,
