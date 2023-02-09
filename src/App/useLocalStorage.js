@@ -3,11 +3,19 @@ import React from 'react';
 // Custom Hook
 function useLocalStorage(itemName, initialValue) {
 
-  // Estados
-  const [synchronizedItem, setSynchronizedItem] = React.useState(true);
-  const [error, setError] = React.useState(false);
-  const [loading, setLoading] = React.useState(true);
-  const [item, setItem] = React.useState(initialValue);
+  const [state, dispatch] = React.useReducer(reducer, initialState({ initialValue }));
+  const {
+    synchronizedItem,
+    error,
+    loading,
+    item,
+  } = state;
+
+  // ACTION CREATOS
+  const onError = error => dispatch({ type: actionTypes.error, payload: error });
+  const onSuccess = parsedItem => dispatch({ type: actionTypes.success, payload: parsedItem });
+  const onSave = newItem => dispatch({ type: actionTypes.save, payload: newItem });
+  const onSynchronize = () => dispatch({ type: actionTypes.synchronize });
   
   // useEffect: Permite ejecutar ciertas partes del código de nuestro componente, para que no se ejecute cada vez que se hace render en nuestro componente, sino dependiendo de ciertas condiciones. React ejecuta el useEffect luego del render de React, pero antes del render en el navegador.
   React.useEffect(() => {
@@ -23,12 +31,10 @@ function useLocalStorage(itemName, initialValue) {
         } else {
           parsedItem = JSON.parse(localStorageItem);
         }
-  
-        setItem(parsedItem);
-        setLoading(false);
-        setSynchronizedItem(true);
+
+        onSuccess(parsedItem);
       } catch (error) {
-        setError(error);
+        onError(error);
       }
     }, 1000); 
   }, [synchronizedItem]); // Array vacío para que se ejecute solo una vez al abrir la app, en el primer render.
@@ -38,15 +44,14 @@ function useLocalStorage(itemName, initialValue) {
     try {
       const stringifiesTodos = JSON.stringify(newItem);
       localStorage.setItem(itemName, stringifiesTodos);
-      setItem(newItem);
+      onSave(newItem);
     } catch (error) {
-      setError(error);
+      onError(error);
     }
   };
 
-  const synchronizeItem = () =>{
-    setLoading(true);
-    setSynchronizedItem(false);
+  const synchronizeItem = () => {
+    onSynchronize();
   };
   
   return {
@@ -57,5 +62,51 @@ function useLocalStorage(itemName, initialValue) {
     synchronizeItem,
   };
 }
+
+// Se crea como función para poder recibir el objeto initialValue, estando por fuera del custom hook useLocalStorage.
+const initialState = ({ initialValue }) => ({
+  synchronizedItem: true,
+  error: false,
+  loading: true,
+  item: initialValue,
+});
+
+const actionTypes = {
+  error: 'ERROR',
+  success: 'SUCCESS',
+  save: 'SAVE',
+  synchronize: 'SYNCHRONIZE',
+};
+
+const reducer = (state, action) => {
+  switch(action.type) {
+  case actionTypes.error: 
+    return {
+      ...state,
+      error: true,
+    };
+  case actionTypes.success:
+    return {
+      ...state,
+      item: action.payload,
+      loading: false,
+      synchronizedItem: true,
+      error: false,
+    };
+  case actionTypes.save:
+    return {
+      ...state,
+      item: action.payload,
+    };
+  case actionTypes.synchronize:
+    return {
+      ...state,
+      loading: true,
+      synchronizedItem: false,
+    };
+  default: 
+    return {...state};
+  }
+};
 
 export { useLocalStorage };
