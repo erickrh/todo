@@ -2,6 +2,7 @@ import React from 'react';
 import './TodoItem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { EditIcon } from '../TodoIcon/EditIcon';
 import PropTypes from 'prop-types';
 
 function TodoItem(props) {
@@ -19,6 +20,9 @@ function TodoItem(props) {
         <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}> {/* Si props.completed es true, entonces se agrega la clase TodoItem-p--complete */ }
           {props.text}
         </p>
+
+        {/* Edit Icon */}
+        <EditIcon onEdit={props.onEdit} />
 
         {/* Delete Icon */}
         <FontAwesomeIcon

@@ -91,6 +91,7 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
+            onEdit={() => console.log('Editando Todo')}
             darkMode={darkMode}
           />
         )}
@@ -102,6 +103,7 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
+            onEdit={() => console.log('Editando Todo')}
             darkMode={darkMode}
           />
         )}
