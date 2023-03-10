@@ -1,19 +1,19 @@
 import React from 'react';
-import { useTodos } from './useTodos';
-import { TodoCounter } from '../TodoCounter';
-import { TodoItem } from '../TodoItem';
-import { CreateTodoButton } from '../CreateTodoButton';
-import { TodoSearch } from '../TodoSearch';
-import { TodoList } from '../TodoList';
-import { Modal } from '../Modal';
-import { TodoForm } from '../TodoForm';
-import { TodosLoading } from '../TodosLoading';
-import { TodosError } from '../TodosError';
-import { EmptyTodos } from '../EmptyTodos';
-import { DarkMode } from '../DarkMode';
-import { TodoHeader } from '../TodoHeader';
-import { EmptySearchResults } from '../EmptySearchResults';
-import { ChangeAlert } from '../ChangeAlert';
+import { useTodos } from '../useTodos';
+import { TodoCounter } from '../../ui/TodoCounter';
+import { TodoItem } from '../../ui/TodoItem';
+import { CreateTodoButton } from '../../ui/CreateTodoButton';
+import { TodoSearch } from '../../ui/TodoSearch';
+import { TodoList } from '../../ui/TodoList';
+import { Modal } from '../../ui/Modal';
+import { TodoForm } from '../../ui/TodoForm';
+import { TodosLoading } from '../../ui/TodosLoading';
+import { TodosError } from '../../ui/TodosError';
+import { EmptyTodos } from '../../ui/EmptyTodos';
+import { DarkMode } from '../../ui/DarkMode';
+import { TodoHeader } from '../../ui/TodoHeader';
+import { EmptySearchResults } from '../../ui/EmptySearchResults';
+import { ChangeAlert } from '../../ui/ChangeAlert';
 
 // const defaultTodos = [
 //   { text: 'Estudiar esperanto', completed: true },
@@ -23,7 +23,7 @@ import { ChangeAlert } from '../ChangeAlert';
 
 // localStorage.setItem('TODOS_V1', JSON.stringify([{ text: 'Estudiar esperanto', completed: true }, { text: 'Hacer ejercicio', completed: false }, { text: 'Ir a la universidad', completed: false }]));
 
-function App() {
+function HomePage() {
   const { states, statesUpdaters } = useTodos();
 
   const {
@@ -154,4 +154,4 @@ function App() {
   );
 }
 
-export default App;
+export { HomePage };
