@@ -86,11 +86,11 @@ function HomePage() {
         onEmptySearchResults={() => <EmptySearchResults searchValue={searchValue} />}
         render={todo => (
           <TodoItem
-            key={todo.text}
+            key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+            onComplete={() => completeTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
             onEdit={() => console.log('Editando Todo')}
             darkMode={darkMode}
           />
@@ -98,11 +98,11 @@ function HomePage() {
       >
         {todo => (
           <TodoItem
-            key={todo.text}
+            key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+            onComplete={() => completeTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
             onEdit={() => console.log('Editando Todo')}
             darkMode={darkMode}
           />
