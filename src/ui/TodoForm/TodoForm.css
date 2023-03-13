@@ -1,7 +1,19 @@
+.flexContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
 form {
   width: 90%;
   max-width: 300px;
-  background-color: #fff;
+  /* background-color: #fff; */
   padding: 23px 30px;
   display: flex;
   justify-content: center;
@@ -18,12 +30,12 @@ form {
 
 @keyframes slide-in {
   from {
-    margin-left: 100%;
+    margin-top: 100%;
     width: 300%;
   }
 
   to {
-    margin-left: 0;
+    margin-top: 0;
     width: 100%;
   }
 }

@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './TodoForm.css';
 
-function TodoForm({ addTodo, setOpenModal, darkMode }) {
+function TodoForm(props) {
+  const navigate = useNavigate();
   const [newTodoValue, setNewTodoValue] = React.useState('');
 
   const onChange = (event) => {
@@ -9,14 +11,14 @@ function TodoForm({ addTodo, setOpenModal, darkMode }) {
   };
 
   const onCancel = () => {
-    setOpenModal(false);
+    navigate('/');
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
     if (newTodoValue.length > 0) {
-      addTodo(newTodoValue);
-      setOpenModal(false);
+      props.submitEvent(newTodoValue);
+      navigate('/');
     } else {
       document.querySelector('.textArea').placeholder = 'Por favor introduce una tarea.';
       document.querySelector('.textArea').focus();
@@ -29,32 +31,34 @@ function TodoForm({ addTodo, setOpenModal, darkMode }) {
   };
 
   return (
-    <form action="" onSubmit={onSubmit} className={`${darkMode && 'formDarkMode'}`}>
-      <label className={`${darkMode && 'labelDarkMode'}`} htmlFor="">Escribe tu nuevo TODO</label>
-      <textarea
-        cols="30" rows="10" className={`textArea ${darkMode && 'textAreaDarkMode'}`}
-        autoFocus
-        placeholder='Pasear al gato'
-        value={newTodoValue}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-      ></textarea>
+    <div className="flexContainer">
+      <form action="" onSubmit={onSubmit} /*className={`${darkMode && 'formDarkMode'}`}*/>
+        <label /*className={`${darkMode && 'labelDarkMode'}`}*/>{props.label}</label>
+        <textarea
+          cols="30" rows="10" className={`textArea {$/*{darkMode && 'textAreaDarkMode'}*/`}
+          autoFocus
+          placeholder='Pasear al gato'
+          value={newTodoValue}
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+        ></textarea>
 
-      <div className='TodoForm-buttonContainer'>
-        <button
-          onClick={onCancel}
-          type="button"
-          className='TodoForm-button TodoForm-button--cancel'>
+        <div className='TodoForm-buttonContainer'>
+          <button
+            onClick={onCancel}
+            type="button"
+            className='TodoForm-button TodoForm-button--cancel'>
             Cancelar
-        </button>
+          </button>
 
-        <button
-          className={`TodoForm-button TodoForm-button--add ${darkMode && 'TodoForm-button--add-darkMode'}`}
-          type='submit'>
-            Añadir
-        </button>
-      </div>
-    </form>
+          <button
+            className={`TodoForm-button TodoForm-button--add ${/*darkMode &&*/ 'TodoForm-button--add-darkMode'}`}
+            type='submit'>
+            {props.submitText}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

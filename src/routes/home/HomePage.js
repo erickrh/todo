@@ -1,12 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTodos } from '../useTodos';
 import { TodoCounter } from '../../ui/TodoCounter';
 import { TodoItem } from '../../ui/TodoItem';
 import { CreateTodoButton } from '../../ui/CreateTodoButton';
 import { TodoSearch } from '../../ui/TodoSearch';
 import { TodoList } from '../../ui/TodoList';
-import { Modal } from '../../ui/Modal';
-import { TodoForm } from '../../ui/TodoForm';
+// import { Modal } from '../../ui/Modal';
+// import { TodoForm } from '../../ui/TodoForm';
 import { TodosLoading } from '../../ui/TodosLoading';
 import { TodosError } from '../../ui/TodosError';
 import { EmptyTodos } from '../../ui/EmptyTodos';
@@ -24,6 +25,7 @@ import { ChangeAlert } from '../../ui/ChangeAlert';
 // localStorage.setItem('TODOS_V1', JSON.stringify([{ text: 'Estudiar esperanto', completed: true }, { text: 'Hacer ejercicio', completed: false }, { text: 'Ir a la universidad', completed: false }]));
 
 function HomePage() {
+  const navigate = useNavigate();
   const { states, statesUpdaters } = useTodos();
 
   const {
@@ -31,21 +33,21 @@ function HomePage() {
     loading,
     searcherTodos,
     searchValue,
-    openModal,
+    // openModal,
     darkMode,
     totalTodos,
     completedTodos
   } = states;
   
   const {
-    addTodo,
+    // addTodo,
     completeTodo,
     deleteTodo,
     synchronizeTodos,
     darkModeToggle,
     setDarkMode,
     setSearchValue,
-    setOpenModal,
+    // setOpenModal,
   } = statesUpdaters;
 
   return (
@@ -91,7 +93,7 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
-            onEdit={() => console.log('Editando Todo')}
+            onEdit={() => navigate(`/edit/${todo.id}`)}
             darkMode={darkMode}
           />
         )}
@@ -103,7 +105,7 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
-            onEdit={() => console.log('Editando Todo')}
+            onEdit={() => navigate(`/edit/${todo.id}`)}
             darkMode={darkMode}
           />
         )}
@@ -136,7 +138,7 @@ function HomePage() {
       */}
 
       {/* Si open modal es true, entonces renderiza los componentes y los elementos siguientes */}
-      {openModal && (
+      {/* {openModal && (
         <Modal setOpenModal={setOpenModal}>
           <TodoForm
             addTodo={addTodo}
@@ -144,9 +146,12 @@ function HomePage() {
             darkMode={darkMode}
           />
         </Modal>
-      )}
+      )} */}
 
-      <CreateTodoButton setOpenModal={setOpenModal} />
+      <CreateTodoButton 
+        onClick={() => navigate('/new')}
+        // setOpenModal={setOpenModal}
+      />
 
       <ChangeAlert
         synchronize={synchronizeTodos}

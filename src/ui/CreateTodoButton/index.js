@@ -3,15 +3,11 @@ import './CreateTodoButton.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
-function CreateTodoButton({ setOpenModal }) {
-  const onClickButton = () => {
-    setOpenModal(prevState => !prevState); // Toggle.
-  };
-
+function CreateTodoButton(props) {
   return (
     <div className='CreateTodoButtonContainer'>
       <FontAwesomeIcon 
-        onClick={onClickButton}
+        onClick={props.onClick}
         icon = {faCirclePlus} className='CreateTodoButton'
       />
     </div>
