@@ -14,7 +14,7 @@ function useTodos() {
   const [searchValue, setSearchValue] = React.useState('');
 
   // Modal
-  const [openModal, setOpenModal] = React.useState(false);
+  // const [openModal, setOpenModal] = React.useState(false);
     
   // TodoCounter
   const completedTodos = todos.filter(todo => todo.completed).length;
@@ -47,17 +47,22 @@ function useTodos() {
     
   // Marcar check
   const completeTodo = id => {
-    const todoIndex = todos.findIndex(todo => todo.text === id);
-    
+    const todoIndex = todos.findIndex(todo => todo.id === id);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed; // Toggle.
+    saveTodos(newTodos);
+  };
+
+  const editTodo = (id, newText) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    const newTodos = [...todos];
+    newTodos[todoIndex].text = newText;
     saveTodos(newTodos);
   };
     
   // Delete
   const deleteTodo = id => {
     const todoIndex = todos.findIndex(todo => todo.id === id);
-    
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
@@ -83,7 +88,6 @@ function useTodos() {
     completedTodos,
     searchValue,
     searcherTodos,
-    openModal,
     darkMode,
   };
 
@@ -92,8 +96,8 @@ function useTodos() {
     setSearchValue,
     completeTodo,
     addTodo,
+    editTodo,
     deleteTodo,
-    setOpenModal,
     setDarkMode,
     darkModeToggle,
     synchronizeTodos,

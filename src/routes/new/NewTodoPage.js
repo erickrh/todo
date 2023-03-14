@@ -4,12 +4,13 @@ import { useTodos } from '../useTodos';
 
 function NewTodoPage() {
   const { statesUpdaters } = useTodos();
+  const { addTodo } = statesUpdaters;
   
   return (
     <TodoForm
       label='Escribe tu nuevo TODO'
       submitText='Añadir'
-      submitEvent={statesUpdaters.addTodo}
+      submitEvent={text => addTodo(text)}
     />
   );
 }
