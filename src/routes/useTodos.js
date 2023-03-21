@@ -59,6 +59,11 @@ function useTodos() {
     newTodos[todoIndex].text = newText;
     saveTodos(newTodos);
   };
+
+  const getTodo = id => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    return todos[todoIndex];
+  };
     
   // Delete
   const deleteTodo = id => {
@@ -89,6 +94,7 @@ function useTodos() {
     searchValue,
     searcherTodos,
     darkMode,
+    getTodo,
   };
 
   // Actualizadores del estado

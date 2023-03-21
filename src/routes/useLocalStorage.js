@@ -38,7 +38,7 @@ function useLocalStorage(itemName, initialValue) {
       } catch (error) {
         onError(error);
       }
-    }, 1000); 
+    }, 500); 
   }, [synchronizedItem]); // Array vacío para que se ejecute solo una vez al abrir la app, en el primer render.
     
   // Persistencia de los todos con localstorage.

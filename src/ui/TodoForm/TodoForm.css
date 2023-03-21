@@ -30,12 +30,12 @@ form {
 
 @keyframes slide-in {
   from {
-    margin-top: 100%;
+    margin-bottom: 100%;
     width: 300%;
   }
 
   to {
-    margin-top: 0;
+    margin-bottom: 0;
     width: 100%;
   }
 }
