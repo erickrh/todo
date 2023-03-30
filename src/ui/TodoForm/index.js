@@ -1,9 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './TodoForm.css';
 
 function TodoForm(props) {
-  const navigate = useNavigate();
+  const history = useHistory();
   const [newTodoValue, setNewTodoValue] = React.useState(props.defaultTodoText || '');
 
   const onChange = (event) => {
@@ -11,14 +11,14 @@ function TodoForm(props) {
   };
 
   const onCancel = () => {
-    navigate('/');
+    history.push('/');
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
     if (newTodoValue.length > 0) {
       props.submitEvent(newTodoValue);
-      navigate('/');
+      history.push('/');
     } else {
       document.querySelector('.textArea').placeholder = 'Por favor introduce una tarea.';
       document.querySelector('.textArea').focus();

@@ -3,7 +3,7 @@ import './TodoSearch.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function TodoSearch({
   searchValue,
@@ -13,7 +13,7 @@ function TodoSearch({
 }) {
 
   const { slug } = useParams();
-  const navigate = useNavigate();
+  const history = useHistory();
 
   React.useEffect(() => {
     if (slug) setSearchValue(slug);
@@ -21,7 +21,7 @@ function TodoSearch({
 
   const onSearchValueChange = event => {
     setSearchValue(event.target.value); // Se actualizará el estado.
-    navigate('/' + event.target.value);
+    history.push('/' + event.target.value);
   };
 
 

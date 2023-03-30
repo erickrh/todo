@@ -1,13 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useTodos } from '../useTodos';
 import { TodoCounter } from '../../ui/TodoCounter';
 import { TodoItem } from '../../ui/TodoItem';
 import { CreateTodoButton } from '../../ui/CreateTodoButton';
 import { TodoSearch } from '../../ui/TodoSearch';
 import { TodoList } from '../../ui/TodoList';
-// import { Modal } from '../../ui/Modal';
-// import { TodoForm } from '../../ui/TodoForm';
 import { TodosLoading } from '../../ui/TodosLoading';
 import { TodosError } from '../../ui/TodosError';
 import { EmptyTodos } from '../../ui/EmptyTodos';
@@ -25,29 +23,26 @@ import { ChangeAlert } from '../../ui/ChangeAlert';
 // localStorage.setItem('TODOS_V1', JSON.stringify([{ text: 'Estudiar esperanto', completed: true }, { text: 'Hacer ejercicio', completed: false }, { text: 'Ir a la universidad', completed: false }]));
 
 function HomePage() {
-  const navigate = useNavigate();
   const { states, statesUpdaters } = useTodos();
+  const history = useHistory();
 
   const {
     error,
     loading,
     searcherTodos,
     searchValue,
-    // openModal,
     darkMode,
     totalTodos,
     completedTodos
   } = states;
   
   const {
-    // addTodo,
     completeTodo,
     deleteTodo,
     synchronizeTodos,
     darkModeToggle,
     setDarkMode,
     setSearchValue,
-    // setOpenModal,
   } = statesUpdaters;
 
   return (
@@ -93,13 +88,13 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
-            onEdit={() => navigate(
-              `/edit/${todo.id}`,
-              {
-                state: { todo }
-              }
-            )}
             darkMode={darkMode}
+            onEdit={() => {
+              history.push({
+                pathname: `/edit/${todo.id}`,
+                state: { todo }
+              });
+            }}
           />
         )}
       >
@@ -110,13 +105,13 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
-            onEdit={() => navigate(
-              `/edit/${todo.id}`,
-              {
-                state: { todo }
-              }
-            )}
             darkMode={darkMode}
+            onEdit={() => {
+              history.push({
+                pathname: `/edit/${todo.id}`,
+                state: { todo }
+              });
+            }}
           />
         )}
       </TodoList> 
@@ -158,10 +153,7 @@ function HomePage() {
         </Modal>
       )} */}
 
-      <CreateTodoButton 
-        onClick={() => navigate('/new')}
-        // setOpenModal={setOpenModal}
-      />
+      <CreateTodoButton onClick={() => history.push('/new')} />
 
       <ChangeAlert
         synchronize={synchronizeTodos}
